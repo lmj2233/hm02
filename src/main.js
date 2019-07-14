@@ -7,6 +7,10 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // 导入axios 配置axios, 直接挂载到Vue原型上，这样就可以全局使用了
 import axios from './api/axios'
+// 导入全局插件，即插槽
+import components from '@/components'
+Vue.use(components)
+
 Vue.prototype.$http = axios
 
 // 注册为全局组件

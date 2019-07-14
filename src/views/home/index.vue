@@ -2,8 +2,9 @@
     <el-container class="home-container">
         <el-aside :width="collapse?'64px':'200px'" class="home-aside">
             <div class="logo" :class="{close:collapse}"></div>
+            <!-- :default-active 属性绑定 -->
             <el-menu
-                default-active="/"
+                :default-active="$route.path"
                 background-color="#002833"
                 text-color="#fff"
                 active-text-color="#ffd04b"

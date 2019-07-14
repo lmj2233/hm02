@@ -8,6 +8,7 @@ import home from '@/views/home'
 // 导入 welcome 组件
 import welcome from '@/views/welcome'
 import NotFound from '@/views/404'
+import article from '@/views/article'
 
 // 注册VueRouter
 Vue.use(VueRouter)
@@ -19,7 +20,8 @@ const router = new VueRouter({
       // name: 'home',
       component: home,
       children: [
-        { path: '/', name: 'welcome', component: welcome }
+        { path: '/', name: 'welcome', component: welcome },
+        { path: '/article', name: 'article', component: article }
       ]
     },
     { path: '*', name: 'NotFound', component: NotFound }
