@@ -9,7 +9,6 @@
                     <el-input placeholder="请输入手机号" v-model="LoginForm.mobile" >
                         <span class="el-icon-circle-check"></span>
                     </el-input>
-
                 </el-form-item>
                 <el-form-item prop="code">
                     <el-input placeholder="请输入验证码" v-model="LoginForm.code" style="width:70%" class="mobile"></el-input>
@@ -23,7 +22,7 @@
                     <el-link type="primary" :underline="false">隐私条款</el-link>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" style="width:100%" @click="login">登录</el-button>
+                    <el-button type="primary" style="width:100%" @click="login()">登录</el-button>
                 </el-form-item>
             </el-form>
         </el-card>
@@ -56,7 +55,6 @@ export default {
         code: [
           { required: true, message: '请输入验证码', trigger: 'blur' },
           { len: 6, message: '验证码格式错误', trigger: 'blur' }
-
         ]
       }
     }
@@ -89,9 +87,11 @@ export default {
           try {
             // 发送axios请求，验证用户信息
             const res = await this.$http.post('authorizations', this.LoginForm)
-            window.sessionStorage.getItem('hm02', JSON.stringify(res.data.data))
+            window.sessionStorage.setItem('hm02', JSON.stringify(res.data.data))
+            // console.log(11)
             this.$router.push('/')
           } catch (err) {
+            console.log(err)
             this.$message.error('用户名或密码错误')
           }
         }

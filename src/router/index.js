@@ -1,14 +1,14 @@
 // 配置路由
-import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vue from 'vue'
 // 导入 Login 组件
 import Login from '@/views/login'
 // 导入 home 组件即首页
-import home from '@/views/home'
+import Home from '@/views/home'
 // 导入 welcome 组件
-import welcome from '@/views/welcome'
+import Welcome from '@/views/welcome'
 import NotFound from '@/views/404'
-import article from '@/views/article'
+import Article from '@/views/article'
 
 // 注册VueRouter
 Vue.use(VueRouter)
@@ -16,16 +16,16 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
     { path: '/login', name: 'login', component: Login },
-    { path: '/',
+    {
+      path: '/',
       // name: 'home',
-      component: home,
+      component: Home,
       children: [
-        { path: '/', name: 'welcome', component: welcome },
-        { path: '/article', name: 'article', component: article }
+        { path: '/', name: 'welcome', component: Welcome },
+        { path: '/article', name: 'article', component: Article }
       ]
     },
-    { path: '*', name: 'NotFound', component: NotFound }
-
+    { path: '*', name: '404', component: NotFound }
   ]
 })
 
